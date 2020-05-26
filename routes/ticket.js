@@ -15,7 +15,8 @@ router.post('/', (req, res) => {
     var newTicket = new Ticket({
     name: req.body.name,
     surname: req.body.surname,
-    ticketCategory: req.body.ticketCategory,
+    email: req.body.email,
+    type: req.body.type,
     price: req.body.price
     })
     newTicket.save((err, docs) => {
