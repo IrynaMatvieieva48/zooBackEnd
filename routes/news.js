@@ -10,3 +10,5 @@ router.get('/', (req, res) => {
         else console.log("error in returning all news " + JSON.stringify(err, undefined, 2));
     });
 })
+
+module.exports = router;

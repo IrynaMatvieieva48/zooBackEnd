@@ -5,12 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var mongoose = require('./db/db');
+var cors = require('cors')
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+
 var ticketRouter = require('./routes/ticket');
-/*var animalsRouter = require('./routes/animals');
-var newsRouter = require('./routes/news');*/
+var animalsRouter = require('./routes/animals');
+var newsRouter = require('./routes/news');
 
 
 var app = express();
@@ -26,13 +26,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use(cors({ origin: 'http://localhost:4200' }));
+
 app.use('/tickets', ticketRouter);
-/*
 app.use('/animals', animalsRouter);
 app.use('/news', newsRouter);
-*/
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -50,6 +50,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(process.env.PORT || 3001)
+app.listen(process.env.PORT || 3000)
 
 module.exports = app;

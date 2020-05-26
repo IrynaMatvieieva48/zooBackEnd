@@ -10,3 +10,6 @@ router.get('/', (req, res) => {
         else console.log("error in returning all animals");
     });
 })
+
+module.exports = router;
+
