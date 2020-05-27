@@ -1,13 +1,14 @@
 const express = require('express');
 var router = express.Router();
 
-var {Animal} = require('../models/animal');
+var {Animals} = require('../models/animal');
 
 router.get('/', (req, res) => {
-    Animal.find((err, docs) => {
+    Animals.find((err, docs) => {
+        console.log(docs);
         if(!err)
             res.send(docs);
-        else console.log("error in returning all animals");
+        else console.log("error in returning all animals" + JSON.stringify(err, undefined, 2));
     });
 })
 

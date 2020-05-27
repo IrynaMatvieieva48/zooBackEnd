@@ -1,11 +1,12 @@
 const mongoose = require('mongoose')
 
-var Animal = mongoose.model('Animal',{
+var Animals = mongoose.model('Animals',{
     name: {type: String},
     description: {type: String},
-    picture: {type: String}
+    picture: {type: String},
+    toggle: {type:Boolean}
 }, 'animals');
 
 module.exports = {
-    Animal: Animal
+    Animals: Animals
 };
